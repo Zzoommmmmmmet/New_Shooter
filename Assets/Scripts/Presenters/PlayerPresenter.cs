@@ -52,14 +52,12 @@ public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler /
     public void HandleMoveRight()
     {
         Debug.Log("Move right");
-      //  _view.OnMove(1f, 0f);
-      _view.OnTurn(1f);
+        _view.OnMove(1f, 0f);
     }
 
     public void HandleMoveLeft()
     {
         Debug.Log("Move left");
-        //_view.OnMove(-1f, 0f);
-        _view.OnTurn(-1f);
+        _view.OnMove(-1f, 0f);
     }
 }
