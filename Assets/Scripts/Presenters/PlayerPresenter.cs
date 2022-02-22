@@ -40,7 +40,7 @@ public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler /
     public void HandleMoveUp()
     {
         Debug.Log("Move up");
-        _view.OnMove(0f, 1f);
+        _view.OnMove(0f, 0.1f);
     }
 
     public void HandleMoveDown()
@@ -52,12 +52,14 @@ public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler /
     public void HandleMoveRight()
     {
         Debug.Log("Move right");
-        _view.OnMove(1f, 0f);
+      //  _view.OnMove(1f, 0f);
+      _view.OnTurn(1f);
     }
 
     public void HandleMoveLeft()
     {
         Debug.Log("Move left");
-        _view.OnMove(-1f, 0f);
+        //_view.OnMove(-1f, 0f);
+        _view.OnTurn(-1f);
     }
 }

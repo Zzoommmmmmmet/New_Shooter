@@ -12,6 +12,8 @@ public class PlayerView : MonoBehaviour // вся магия с анимацие
     // переименовываем Аниматор.СтрингТоХэш на инт позицию для комфорта
 
     private const float TimeToChange = 1f; // время изменения в ДОТВин
+
+    [SerializeField] private float _rotateSpeed = 50f;
     public void OnHealthChanged(int health) // метод изменяем хелсБар
     {
         Debug.Log("Health: "+health);
@@ -23,11 +25,20 @@ public class PlayerView : MonoBehaviour // вся магия с анимацие
     
     public void OnMove(float x, float z) // Анимация бега
     {
+      //  Vector3 currentPosition = this.transform.position;
+      //  Vector3 newPosition = new Vector3(currentPosition.x + x * -1f, currentPosition.y, currentPosition.z + z * -1f);
+      //  this.transform.DOMove(newPosition, TimeToChange);
+        
         Vector3 currentPosition = this.transform.position;
         Vector3 newPosition = new Vector3(currentPosition.x + x * -1f, currentPosition.y, currentPosition.z + z * -1f);
         this.transform.DOMove(newPosition, TimeToChange);
         
-        this.transform.DORotate(Vector3.up, 1f);
+        
         _animator.SetBool(IsRunning, true);
+    }
+
+    public void OnTurn(float rotate)
+    {
+        this.transform.Rotate(Vector3.up, rotate*_rotateSpeed*Time.deltaTime);
     }
 }

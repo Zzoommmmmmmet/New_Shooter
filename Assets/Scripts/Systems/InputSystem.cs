@@ -5,22 +5,22 @@ public class InputSystem : MonoBehaviour // метод который отсле
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             EventBus.RaiseEvent<IInputSystemHandler>(h => h.HandleMoveUp()); // реализация через RaiseEvent
         }
             
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             EventBus.RaiseEvent<IInputSystemHandler>(h => h.HandleMoveDown());
         }
         
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             EventBus.RaiseEvent<IInputSystemHandler>(h => h.HandleMoveLeft());
         }
         
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             EventBus.RaiseEvent<IInputSystemHandler>(h => h.HandleMoveRight());
         }
