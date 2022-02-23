@@ -18,10 +18,31 @@ public class Player : ICharacter
         set => _dmg = value;
     }
 
-    public Player(int health, int dmg)
+    public bool IsAttacking
+    {
+        get => _isAttacking;
+        set
+        {
+            _isAttacking = value;
+            OnAttackEvent?.Invoke(value);
+        }
+    }
+
+    public StateType State
+    {
+        get => _state;
+        set
+        {
+            _state = value;
+            OnStateEvent?.Invoke(value);
+        }
+    }
+
+    public Player(int health, int dmg) // конструктор
     {
         _health = health;
         _dmg = dmg;
+        _state = StateType.Idle;
     }
 
     public void DoIdle()
@@ -35,7 +56,11 @@ public class Player : ICharacter
     }
 
     public event Action<int> OnHealthEvent; // создали евент, который подписан на изменение жизней
+    public event Action<StateType> OnStateEvent;
+    public event Action<bool> OnAttackEvent;
 
-    private int _health;
-    private int _dmg;
+    private int _health; // хп игрока
+    private int _dmg;   // дамаг игрока
+    private StateType _state;
+    private bool _isAttacking;
 }

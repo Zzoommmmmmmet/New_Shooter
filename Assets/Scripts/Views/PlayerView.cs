@@ -18,17 +18,24 @@ public class PlayerView : MonoBehaviour // вся магия с анимацие
     {
         Debug.Log("Health: "+health);
         _healthBarView.UpdateHealthFiller(health); // Анимация для хелсБара изменения хп
-
-        if (health <= 0)
-            _animator.SetTrigger("Dead"); // если 0 - то умирает
     }
-    
+
+    public void OnStateChanged(StateType state)
+    {
+        switch (state)
+        {
+            case StateType.Idle:
+                break;
+            case StateType.Move:
+                break;
+            case StateType.Die:
+                _animator.SetTrigger("Dead");
+                break;
+        }
+    }
+
     public void OnMove(float x, float z) // Анимация бега
     {
-      //  Vector3 currentPosition = this.transform.position;
-      //  Vector3 newPosition = new Vector3(currentPosition.x + x * -1f, currentPosition.y, currentPosition.z + z * -1f);
-      //  this.transform.DOMove(newPosition, TimeToChange);
-        
         Vector3 currentPosition = this.transform.position;
         Vector3 newPosition = new Vector3(currentPosition.x + x * -1f, currentPosition.y, currentPosition.z + z * -1f);
         this.transform.DOMove(newPosition, TimeToChange);
@@ -37,8 +44,8 @@ public class PlayerView : MonoBehaviour // вся магия с анимацие
         _animator.SetBool(IsRunning, true);
     }
 
-    public void OnTurn(float rotate)
-    {
-        this.transform.Rotate(Vector3.up, rotate*_rotateSpeed*Time.deltaTime);
-    }
+    // public void OnTurn(float rotate)
+    // {
+    //    this.transform.Rotate(Vector3.up, rotate*_rotateSpeed*Time.deltaTime);
+    // }
 }

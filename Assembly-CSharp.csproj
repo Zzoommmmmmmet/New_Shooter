@@ -77,12 +77,15 @@
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\StylizedWater.cs" />
      <Compile Include="Assets\All_Assets\ARPG Effects\Scripts\ARPGFXPortalScript.cs" />
      <Compile Include="Assets\All_Assets\JMO Assets\Toony Colors\Demo 2.0\TCF_Demo.cs" />
-     <Compile Include="Assets\Scripts\Joystic\Joystic_controller.cs" />
+     <Compile Include="Assets\Scripts\Joystic\JoystickController.cs" />
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\EnableDepthBuffer.cs" />
      <Compile Include="Assets\Scripts\Systems\IInputSystemHandler.cs" />
      <Compile Include="Assets\Scripts\EventBusSystem\EventBus.cs" />
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\StylizedWaterBlur.cs" />
      <Compile Include="Assets\Scripts\Systems\DamageSystem.cs" />
+     <Compile Include="Assets\Scripts\Commands\ICommand.cs" />
+     <Compile Include="Assets\Scripts\Commands\ChangeHealthCommand.cs" />
+     <Compile Include="Assets\Scripts\Commands\CheckPlayerHasDiedCommand.cs" />
      <None Include="Assets\All_Assets\StylizedWater\Scripts\Textures\Intersection\Readme.txt" />
      <None Include="Assets\All_Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\All_Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

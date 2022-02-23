@@ -5,36 +5,31 @@ public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler /
 {
     private readonly ICharacter _player;
     private readonly PlayerView _view;
-    
-    public PlayerPresenter(ICharacter player, PlayerView view)
+    private readonly ChangeHealthCommand _changeHealthCommand;
+    private readonly CheckPlayerHasDiedCommand _checkPlayerHasDiedCommand;
+    public PlayerPresenter(
+        ICharacter player, 
+        PlayerView view,
+        ChangeHealthCommand changeHealthCommand, 
+        CheckPlayerHasDiedCommand checkPlayerHasDiedCommand)
     {
         _player = player;
         _view = view;
+        _changeHealthCommand = changeHealthCommand;
+        _checkPlayerHasDiedCommand = checkPlayerHasDiedCommand;
     }
 
     public void Initialize() // инициализируем подписку
     {
         EventBus.Subscribe(this); // подписались шиной тут
-        _player.OnHealthEvent += h => _view.OnHealthChanged(h); // при срабатывании евента меняем во вьехе здоровье игрока
+        _player.OnHealthEvent += h => _view.OnHealthChanged(h); // при срабатывании евента меняем во вьюхе здоровье игрока
+        _player.OnStateEvent += h => _view.OnStateChanged(h);
     }
-    
-    // private void OnEnable()
-    // {
-    //     EventBus.Subscribe(this);
-    // }
-    //
-    // private void OnDisable()
-    // {
-    //     EventBus.Unsubscribe(this);
-    // }
 
     public void HandleDamage() // метод который наносит урон игроку
     {
-        if (_player.Health <= 0) return; // усли у игрока меньше 0 хп, то ничего не делаем
-        _player.Health -= 10;
-
-        // if (_player.Health <= 0)
-        //     _player.State = State.Death;
+        _changeHealthCommand.Execute(10);
+        _checkPlayerHasDiedCommand.Execute();
     }
 
     public void HandleMoveUp()
