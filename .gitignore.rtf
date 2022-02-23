@@ -7,14 +7,10 @@
 \pard\pardeftab720\partightenfactor0
 
 \f0\fs26 \cf0 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \
-# Created by https://www.toptal.com/developers/gitignore/api/unity\
-# Edit at https://www.toptal.com/developers/gitignore?templates=unity\
-\
-### Unity ###\
 # This .gitignore file should be placed at the root of your Unity project directory\
 #\
-# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore\
+# Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore\
+#\
 /[Ll]ibrary/\
 /[Tt]emp/\
 /[Oo]bj/\
@@ -27,8 +23,8 @@
 # They also could contain extremely sensitive data\
 /[Mm]emoryCaptures/\
 \
-# Recordings can get excessive in size\
-/[Rr]ecordings/\
+# Asset meta data should only be ignored when the corresponding asset is also ignored\
+!/[Aa]ssets/**/*.meta\
 \
 # Uncomment this line if you wish to ignore the asset store tools plugin\
 # /[Aa]ssets/AssetStoreTools*\
@@ -72,9 +68,28 @@ sysinfo.txt\
 *.apk\
 *.aab\
 *.unitypackage\
-*.app\
 \
-# Crashlytics generated file\
+# Photon pdb\
+!Assets/Plugins/Photon/**/*.pdbServerData/\
+\
+# Addressables remote data\
+ServerData/\
+\
+# Addressables analyze data\
+Assets/AddressableAssetsData/AnalyzeData/\
+Assets/AddressableAssetsData/AnalyzeData.meta\
+\
+# Build reports\
+Assets/BuildReports/\
+Assets/BuildReports.meta\
+Assets/GeneratedLocalRepo/\
+Assets/GeneratedLocalRepo.meta\
+\
+# Crashlytics generated files\
+Assets/Plugins/Android/Firebase/res/values/crashlytics_build_id.xml\
+Assets/Plugins/Android/Firebase/res/values/crashlytics_build_id.xml.meta\
+Assets/Plugins/Android/Firebase/res/values/crashlytics_unity_version.xml\
+Assets/Plugins/Android/Firebase/res/values/crashlytics_unity_version.xml.meta\
 crashlytics-build.properties\
 \
 # Packed Addressables\
@@ -83,6 +98,4 @@ crashlytics-build.properties\
 # Temporary auto-generated Android Assets\
 /[Aa]ssets/[Ss]treamingAssets/aa.meta\
 /[Aa]ssets/[Ss]treamingAssets/aa/*\
-\
-# End of https://www.toptal.com/developers/gitignore/api/unity\
 }
