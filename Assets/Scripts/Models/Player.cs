@@ -28,6 +28,12 @@ public class Player : ICharacter
         }
     }
 
+    public bool IsReloading
+    {
+        get => _isReloading; 
+        set => _isReloading = value;
+    }
+
     public StateType State
     {
         get => _state;
@@ -43,6 +49,7 @@ public class Player : ICharacter
         _health = health;
         _dmg = dmg;
         _state = StateType.Idle;
+        _isReloading = false; 
     }
 
     public void DoIdle()
@@ -63,4 +70,5 @@ public class Player : ICharacter
     private int _dmg;   // дамаг игрока
     private StateType _state;
     private bool _isAttacking;
+    private bool _isReloading;
 }

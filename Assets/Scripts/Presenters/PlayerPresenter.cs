@@ -1,22 +1,27 @@
+using System.Collections;
+using DG.Tweening;
 using EventBusSystem;
 using UnityEngine;
 
-public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler // осуществляет все подписки в этом методе
+public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler, IAttackOnEnemyHandler // осуществляет все подписки в этом методе
 {
     private readonly ICharacter _player;
     private readonly PlayerView _view;
     private readonly ChangeHealthCommand _changeHealthCommand;
     private readonly CheckPlayerHasDiedCommand _checkPlayerHasDiedCommand;
+    private readonly ReloadGunCommand _reloadGunCommand;
     public PlayerPresenter(
         ICharacter player, 
         PlayerView view,
         ChangeHealthCommand changeHealthCommand, 
-        CheckPlayerHasDiedCommand checkPlayerHasDiedCommand)
+        CheckPlayerHasDiedCommand checkPlayerHasDiedCommand,
+        ReloadGunCommand reloadGunCommand)
     {
         _player = player;
         _view = view;
         _changeHealthCommand = changeHealthCommand;
         _checkPlayerHasDiedCommand = checkPlayerHasDiedCommand;
+        _reloadGunCommand = reloadGunCommand;
     }
 
     public void Initialize() // инициализируем подписку
@@ -54,5 +59,12 @@ public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler /
     {
         Debug.Log("Move left");
         _view.OnMove(-1f, 0f);
+    }
+
+    public void HandleAttackOnEnemy(EnemyView enemyView)
+    {        
+        if(_player.IsReloading) return;
+        var action = _reloadGunCommand.Execute();
+        enemyView.gameObject.SetActive(false);
     }
 }

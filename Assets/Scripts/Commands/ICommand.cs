@@ -1,3 +1,6 @@
+using System;
+using System.Threading.Tasks;
+
 public interface IActionCommand
 {
     void Execute();
@@ -6,4 +9,9 @@ public interface IActionCommand
 public interface IActionCommand<TParam>
 {
     void Execute(TParam param);
+}
+
+public interface IActionCommandAsync
+{
+    Task Execute();
 }

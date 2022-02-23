@@ -22,18 +22,7 @@ public class PlayerView : MonoBehaviour // вся магия с анимацие
         Debug.Log("Health: "+health);
         _healthBarView.UpdateHealthFiller(health); // Анимация для хелсБара изменения хп
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag.Equals("Enemy"))
-        {
-            if (other.GetType() == typeof(BoxCollider))
-            {
-                Debug.Log("Attack on "+other.name);
-            }
-        }
-    }
-
+    
     public void OnStateChanged(StateType state)
     {
         switch (state)

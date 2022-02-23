@@ -55,11 +55,14 @@
      <Compile Include="Assets\All_Assets\StylizedProjectilePack1\scripts\particleColorChanger.cs" />
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\StylizedWaterResources.cs" />
      <Compile Include="Assets\Scripts\Presenters\PlayerPresenter.cs" />
+     <Compile Include="Assets\Scripts\Commands\ChangeHealthCommand.cs" />
      <Compile Include="Assets\All_Assets\StylizedProjectilePack1\scripts\instantiateEffectCaller.cs" />
      <Compile Include="Assets\Res\Scripts\BombRotation.cs" />
      <Compile Include="Assets\Res\HUD\Joystick Pack\Examples\JoystickPlayerExample.cs" />
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\StylizedWaterUtilities.cs" />
      <Compile Include="Assets\Scripts\Models\ICharacter.cs" />
+     <Compile Include="Assets\Scripts\Views\EnemyView.cs" />
+     <Compile Include="Assets\Scripts\Commands\ICommand.cs" />
      <Compile Include="Assets\Scripts\EventBusSystem\EventBusHelper.cs" />
      <Compile Include="Assets\Res\HUD\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
      <Compile Include="Assets\Scripts\Systems\InputSystem.cs" />
@@ -69,6 +72,7 @@
      <Compile Include="Assets\All_Assets\ARPG Effects\Scripts\ARPGFXRotation.cs" />
      <Compile Include="Assets\Scripts\Systems\IPlayerDamageSystemHandler.cs" />
      <Compile Include="Assets\Scripts\Views\HealthBarView.cs" />
+     <Compile Include="Assets\Scripts\Commands\CheckPlayerHasDiedCommand.cs" />
      <Compile Include="Assets\Res\HUD\Joystick Pack\Examples\JoystickSetterExample.cs" />
      <Compile Include="Assets\Res\Scripts\Move.cs" />
      <Compile Include="Assets\All_Assets\GUI PRO Kit - Casual Game\Extensions\UIParticle\UIParticleSystem.cs" />
@@ -83,10 +87,9 @@
      <Compile Include="Assets\Scripts\EventBusSystem\EventBus.cs" />
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\StylizedWaterBlur.cs" />
      <Compile Include="Assets\Scripts\Systems\DamageSystem.cs" />
-     <Compile Include="Assets\Scripts\Commands\ICommand.cs" />
-     <Compile Include="Assets\Scripts\Commands\ChangeHealthCommand.cs" />
-     <Compile Include="Assets\Scripts\Commands\CheckPlayerHasDiedCommand.cs" />
-     <Compile Include="Assets\Scripts\Views\EnemyView.cs" />
+     <Compile Include="Assets\Scripts\Systems\AttackOnEnemySystem.cs" />
+     <Compile Include="Assets\Scripts\Systems\IAttackOnEnemyHandler.cs" />
+     <Compile Include="Assets\Scripts\Commands\ReloadGunCommand.cs" />
      <None Include="Assets\All_Assets\StylizedWater\Scripts\Textures\Intersection\Readme.txt" />
      <None Include="Assets\All_Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\All_Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

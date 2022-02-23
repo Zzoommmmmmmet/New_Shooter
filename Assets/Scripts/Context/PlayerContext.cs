@@ -9,20 +9,29 @@ public class PlayerContext : MonoBehaviour
 
     private ChangeHealthCommand _changeHealthCommand;
     private CheckPlayerHasDiedCommand _checkPlayerHasDiedCommand;
+    private ReloadGunCommand _reloadGunCommand;
     private void Start()
     {
         _player = new Player(100, 10); // создаем игрока с жизнями и дамагом
         
         BindCommands();
 
-        _presenter = new PlayerPresenter(_player, _view, _changeHealthCommand, _checkPlayerHasDiedCommand); // создаем презентера с игроком и его визуалкой
-        _presenter.Initialize(); // инициализируме
+        _presenter = new PlayerPresenter
+            (
+                _player, 
+                _view, 
+                _changeHealthCommand, 
+                _checkPlayerHasDiedCommand,
+                _reloadGunCommand
+            ); // создаем презентера с игроком и его визуалкой
         
+        _presenter.Initialize(); // инициализируме
     }
 
     private void BindCommands()
     { 
         _changeHealthCommand = new ChangeHealthCommand(_player);
         _checkPlayerHasDiedCommand = new CheckPlayerHasDiedCommand(_player);
+        _reloadGunCommand = new ReloadGunCommand(_player);
     }
 }

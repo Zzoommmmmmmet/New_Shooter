@@ -12,6 +12,7 @@ public interface ICharacter // создаем интерфейс который 
     int Health { get; set; }
     int Dmg { get; set; }
     bool IsAttacking { get; set; }
+    bool IsReloading { get; set; }
     StateType State { get; set; }
     void DoIdle();
     void DoMove();
