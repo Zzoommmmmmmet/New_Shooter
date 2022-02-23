@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PlayerView : MonoBehaviour // вся магия с анимацие
 {
     [SerializeField] private Animator _animator; // закидываем сюда игрока который будет менять свою анимацию
     [SerializeField] private HealthBarView _healthBarView; // кидаем сюда хелсБар для его изменения
+    [SerializeField] private SphereCollider sphereCollider;
+    
     private static readonly int IsRunning = Animator.StringToHash("IsRunning");
     // переименовываем Аниматор.СтрингТоХэш на инт позицию для комфорта
 
@@ -18,6 +21,17 @@ public class PlayerView : MonoBehaviour // вся магия с анимацие
     {
         Debug.Log("Health: "+health);
         _healthBarView.UpdateHealthFiller(health); // Анимация для хелсБара изменения хп
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Enemy"))
+        {
+            if (other.GetType() == typeof(BoxCollider))
+            {
+                Debug.Log("Attack on "+other.name);
+            }
+        }
     }
 
     public void OnStateChanged(StateType state)
