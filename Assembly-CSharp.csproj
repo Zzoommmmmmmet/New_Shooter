@@ -41,7 +41,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Commands\ReloadGunCommand.cs" />
      <Compile Include="Assets\Scripts\Context\PlayerContext.cs" />
+     <Compile Include="Assets\Scripts\Systems\AttackOnEnemySystem.cs" />
      <Compile Include="Assets\Scripts\Views\PlayerView.cs" />
      <Compile Include="Assets\Res\HUD\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\Res\HUD\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
@@ -85,11 +87,9 @@
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\EnableDepthBuffer.cs" />
      <Compile Include="Assets\Scripts\Systems\IInputSystemHandler.cs" />
      <Compile Include="Assets\Scripts\EventBusSystem\EventBus.cs" />
+     <Compile Include="Assets\Scripts\Systems\IAttackOnEnemyHandler.cs" />
      <Compile Include="Assets\All_Assets\StylizedWater\Scripts\StylizedWaterBlur.cs" />
      <Compile Include="Assets\Scripts\Systems\DamageSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\AttackOnEnemySystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\IAttackOnEnemyHandler.cs" />
-     <Compile Include="Assets\Scripts\Commands\ReloadGunCommand.cs" />
      <None Include="Assets\All_Assets\StylizedWater\Scripts\Textures\Intersection\Readme.txt" />
      <None Include="Assets\All_Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\All_Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

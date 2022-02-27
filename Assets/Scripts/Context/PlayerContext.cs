@@ -7,8 +7,8 @@ public class PlayerContext : MonoBehaviour
     private Player _player; // инициализируем игрока
     private PlayerPresenter _presenter; // инициализируем ПлеерПрезентер
 
-    private ChangeHealthCommand _changeHealthCommand;
-    private CheckPlayerHasDiedCommand _checkPlayerHasDiedCommand;
+    private ChangeHealthCommand _changeHealthCommand; // прокидываем интерфейс 
+    private CheckPlayerHasDiedCommand _checkPlayerHasDiedCommand; // прокидываем 
     private ReloadGunCommand _reloadGunCommand;
     private void Start()
     {
