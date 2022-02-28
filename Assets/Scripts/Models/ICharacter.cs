@@ -1,6 +1,6 @@
 using System;
 
-public enum StateType
+public enum StateType // состояния игрока
 {
     Idle,
     Move,
@@ -11,13 +11,13 @@ public interface ICharacter // создаем интерфейс который 
 {
     int Health { get; set; }
     int Dmg { get; set; }
-    bool IsAttacking { get; set; }
+    bool IsAttacking { get; set; } // переменная для атаки стрельба он/офф
     bool IsReloading { get; set; }
-    StateType State { get; set; }
+    StateType State { get; set; } // состояния игрока 
     void DoIdle();
     void DoMove();
 
     event Action<int> OnHealthEvent; // создаем евент на который будет подписан игрок
-    event Action<StateType> OnStateEvent;
-    event Action<bool> OnAttackEvent;
+    event Action<StateType> OnStateEvent; // принятие состояний евент (содержит в себе состояния)
+    event Action<bool> OnAttackEvent; // евент на атаку игрока
 }

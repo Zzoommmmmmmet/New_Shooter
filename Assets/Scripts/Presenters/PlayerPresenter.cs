@@ -61,7 +61,7 @@ public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler, 
         _view.OnMove(-1f, 0f);
     }
 
-    public void HandleAttackOnEnemy(EnemyView enemyView)
+    public void HandleAttackOnEnemy(EnemyView enemyView) // атака по противнику
     {        
         if(_player.IsReloading) return;
         var action = _reloadGunCommand.Execute();

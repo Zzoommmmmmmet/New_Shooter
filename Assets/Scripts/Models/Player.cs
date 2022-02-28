@@ -2,7 +2,7 @@ using System;
 
 public class Player : ICharacter
 {
-    public int Health
+    public int Health // меняем кол-во хп
     {
         get => _health;
         set
@@ -12,13 +12,13 @@ public class Player : ICharacter
         }
     }
 
-    public int Dmg
+    public int Dmg // наносим урон (тут оно не реализуется)
     {
         get => _dmg; 
         set => _dmg = value;
     }
 
-    public bool IsAttacking
+    public bool IsAttacking // для атаки
     {
         get => _isAttacking;
         set
@@ -28,13 +28,13 @@ public class Player : ICharacter
         }
     }
 
-    public bool IsReloading
+    public bool IsReloading // перезарядка
     {
         get => _isReloading; 
         set => _isReloading = value;
     }
 
-    public StateType State
+    public StateType State //состояние игрока
     {
         get => _state;
         set
@@ -63,12 +63,12 @@ public class Player : ICharacter
     }
 
     public event Action<int> OnHealthEvent; // создали евент, который подписан на изменение жизней
-    public event Action<StateType> OnStateEvent;
-    public event Action<bool> OnAttackEvent;
+    public event Action<StateType> OnStateEvent; // создали евент, который подписан на изменение состояния игрока
+    public event Action<bool> OnAttackEvent; // создали евент на атаку игрока
 
     private int _health; // хп игрока
     private int _dmg;   // дамаг игрока
-    private StateType _state;
-    private bool _isAttacking;
-    private bool _isReloading;
+    private StateType _state; //  состояние игрока
+    private bool _isAttacking; // атака
+    private bool _isReloading; // перезарядка игрока
 }
