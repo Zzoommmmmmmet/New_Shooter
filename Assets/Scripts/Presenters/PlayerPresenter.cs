@@ -3,13 +3,15 @@ using DG.Tweening;
 using EventBusSystem;
 using UnityEngine;
 
-public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler, IAttackOnEnemyHandler // осуществляет все подписки в этом методе
+public class PlayerPresenter : IPlayerDamageSystemHandler, IInputSystemHandler, IAttackOnEnemyHandler
+    // осуществляет все подписки в этом методе
 {
     private readonly ICharacter _player;
     private readonly PlayerView _view;
     private readonly ChangeHealthCommand _changeHealthCommand;
     private readonly CheckPlayerHasDiedCommand _checkPlayerHasDiedCommand;
     private readonly ReloadGunCommand _reloadGunCommand;
+    
     public PlayerPresenter(
         ICharacter player, 
         PlayerView view,
