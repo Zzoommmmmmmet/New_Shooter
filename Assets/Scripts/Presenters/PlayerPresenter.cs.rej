@@ -1,0 +1,10 @@
+diff a/Assets/Scripts/Presenters/PlayerPresenter.cs b/Assets/Scripts/Presenters/PlayerPresenter.cs	(rejected hunks)
+@@ -61,7 +61,7 @@
+         _view.OnMove(-1f, 0f);
+     }
+ 
+-    public void HandleAttackOnEnemy(EnemyView enemyView)
++    public void HandleAttackOnEnemy(EnemyView enemyView) // атака по противнику
+     {        
+         if(_player.IsReloading) return;
+         var action = _reloadGunCommand.Execute();

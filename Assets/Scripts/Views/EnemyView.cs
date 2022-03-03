@@ -49,7 +49,7 @@ public class EnemyView : MonoBehaviour // класс за отображение
 
         IEnumerator MakeDelay() // корутина на перезарядку
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f); // корутина на перезарядку
             _onPause = false;
             _target = _cachedTarget;
         }
